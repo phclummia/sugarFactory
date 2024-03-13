@@ -1,13 +1,13 @@
-package com.example.stock.backend;
+package com.ganesha.mip;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class MipApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(MipApplication.class, args);
 	}
 
 }
