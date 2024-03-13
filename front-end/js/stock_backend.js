@@ -16,7 +16,7 @@ var apiCalls = {
   getCustomerPortfolio: function (customerNum, success) {
 
     $.ajax({
-      url: "http://localhost:8080/" + customerNum + "/portfolio",
+      url: "http://localhost:8080/api/customer/" + customerNum,
       type: 'GET',
       dataType: 'json', // added data type
       success: success,
@@ -28,7 +28,7 @@ var apiCalls = {
   getProducts: function ( success) {
 
     $.ajax({
-      url: "http://localhost:8080/products",
+      url: "http://localhost:8080/api/productbucket",
       type: 'GET',
       dataType: 'json', // added data type
       success: success,
