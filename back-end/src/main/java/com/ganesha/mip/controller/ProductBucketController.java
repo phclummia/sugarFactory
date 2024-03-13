@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*",value = "*")
 public class ProductBucketController {
 
-    private ProductBucketRepository productBucketRepository;
+    private final ProductBucketRepository productBucketRepository;
 
     @GetMapping(path = "api/productbucket")
     public ResponseEntity getCustomerById()
