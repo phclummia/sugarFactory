@@ -1,10 +1,10 @@
-package com.example.stock.backend;
+package com.ganesha.mip;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class MipApplicationTests {
 
 	@Test
 	void contextLoads() {
