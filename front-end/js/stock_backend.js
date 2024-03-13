@@ -25,7 +25,7 @@ var apiCalls = {
       }
     });
   },
-  getProducts: function (customerNum, success) {
+  getProducts: function ( success) {
 
     $.ajax({
       url: "http://localhost:8080/products",
