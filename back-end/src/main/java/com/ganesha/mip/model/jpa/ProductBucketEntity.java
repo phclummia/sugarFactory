@@ -31,6 +31,7 @@ public class ProductBucketEntity {
     @Column(name="NUMBER_OF_UNIT")
     private long numberOfUnit;
 
+    /*
     @OneToMany(mappedBy = "productBucketEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("productBucketEntity")
     private List<ProductBucketPerformanceEntity> productBucketPerformanceEntities = new ArrayList<>();
@@ -38,7 +39,7 @@ public class ProductBucketEntity {
     public void addPerformance(ProductBucketPerformanceEntity entity) {
         productBucketPerformanceEntities.add(entity);
         entity.setProductBucketEntity(this);
-    }
+    }*/
 
     @OneToMany(mappedBy = "productBucketEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("productBucketEntity")
@@ -47,6 +48,27 @@ public class ProductBucketEntity {
 
     public void addInvolvedPartyRelationship(ProductBucketDetailEntity entity) {
         productBucketDetailEntities.add(entity);
+        entity.setProductBucketEntity(this);
+    }
+
+
+    @OneToMany(mappedBy = "productBucketEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("productBucketEntity")
+    private List<ProductBucketPerformanceDetailAgressiveEntity> ProductBucketPerformanceDetailAgressiveEntity =
+            new ArrayList<>();
+
+    public void addAgressive(ProductBucketPerformanceDetailSafeEntity entity) {
+        productBucketPerformanceDetailSafeEntities.add(entity);
+        entity.setProductBucketEntity(this);
+    }
+
+    @OneToMany(mappedBy = "productBucketEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("productBucketEntity")
+    private List<ProductBucketPerformanceDetailSafeEntity> productBucketPerformanceDetailSafeEntities =
+            new ArrayList<>();
+
+    public void addAgressive(ProductBucketPerformanceDetailAgressiveEntity entity) {
+        ProductBucketPerformanceDetailAgressiveEntity.add(entity);
         entity.setProductBucketEntity(this);
     }
 

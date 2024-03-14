@@ -1,14 +1,12 @@
 package com.ganesha.mip.controller;
 
 
+import com.ganesha.mip.model.dto.BuyCustomerProductDTO;
 import com.ganesha.mip.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,6 +19,15 @@ public class CustomerController {
     public ResponseEntity getCustomerById(@PathVariable String Id)
     {
         return  ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomerDetails(Id));
+    }
+
+    @PostMapping(path = "api/customer/{Id}/buy")
+
+    public ResponseEntity buyProductBucket(@PathVariable String Id,@RequestBody BuyCustomerProductDTO customerProductDTO)
+
+    {
+        customerService.buyCustomerProduct(Id,customerProductDTO);
+        return  ResponseEntity.status(HttpStatus.OK).body("Product Bucket invested succesfully");
     }
 
 

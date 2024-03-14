@@ -42,9 +42,14 @@ public class StockTrackingDetailEntity {
     @Column(name="CONDITION_EXIT")
     private long conditionExit;
 
+    @Column(name="IS_EXIT")
     private boolean isExit;
-
+    @Column(name="IS_ENTERED")
     private boolean isEntered;
+    @Column(name="PROFIT")
+    private long profit;
+    @Column(name="LOSS")
+    private long loss;
 
 
 }
