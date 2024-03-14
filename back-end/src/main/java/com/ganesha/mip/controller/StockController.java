@@ -32,10 +32,11 @@ public class StockController {
         return  ResponseEntity.status(HttpStatus.OK).body(stockRepository.findAll());
     }
 
-    @GetMapping(path = "api/stock/import/{name}")
-    public ResponseEntity importCsv(@PathVariable  String name) throws Exception
+    @GetMapping(path = "api/stock/import")
+    public ResponseEntity importCsv() throws Exception
     {
-        String path="C:\\Users\\RU80NU\\Projects\\sugarFactory\\data\\"+name+".csv";
+        String name="StockTrackingDetails";
+        String path="C:\\Users\\RU80NU\\Projects\\sugarFactory\\data\\StockTransactionDetail\\"+name+".csv";
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -45,7 +46,7 @@ public class StockController {
             }
         }
 
-        stockService.importStockList(name,records);
+        stockService.importStockList2(records);
         return  ResponseEntity.status(HttpStatus.OK).body(stockRepository.findAll());
     }
 
