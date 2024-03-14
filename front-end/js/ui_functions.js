@@ -13,6 +13,25 @@ var uiFunctions = {
     uiFunctions.config.api.getCustomerPortfolio(
         $('#customerNumber').val(), uiFunctions.getPortfolio);
   },
+  showHistoricalData: function () {
+
+    $('#dataTableHistorySummary').DataTable({
+      bAutoWidth: false,
+      data: uiFunctions.config.data.customerBucketDetailEntities[3].productBucketEntity.productBucketPerformanceDetailAgressiveEntity,
+      columns: [
+        {data: 'stock1Name', title: 'First Stock'},
+        {data: 'stock2Name', title: 'Second Stock'},
+        {data: 'stock3Name', title: 'Third Stock'},
+        {data: 'mon100EFT', title: '100 EFT'},
+        {data: 'unit_mon100eft', title: 'Unit 100 EFT'},
+        {data: 'stockPrice', title: 'Stock Price'},
+        {data: 'totalPrice', title: 'Total Price'},
+        {data: 'date', title: 'Date'}]
+    });
+
+    $('#myModal').modal('show');
+
+  },
   getPortfolio: function (data) {
 
     uiFunctions.config.data = data;
