@@ -29,6 +29,9 @@ public class ProductBucketDetailEntity {
     @Column(name = "STOCK_PRICE")
     private long stockPrice;
 
+    @Column(name="TRANSACTION_DATE")
+    private String date;
+
     @Column(name = "UNIT")
     private long unit;
 }
